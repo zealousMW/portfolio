@@ -1,13 +1,16 @@
 import CosmicSphere from "@/components/hero/hero";
+import Hero from "@/components/hero/hero2";
 
-const main = () => {
+const Main = () => {
   return (
     <main className="w-full h-full">
-      <div className="flex flex-col gap-20">
-        <CosmicSphere />
-      </div>
+      <div>hello </div>
+      <div className="flex flex-col h-[850px] gap-20">
+        {/* <Hero/> */}
+        <Hero/>
+        </div>
     </main>
   );
 } 
 
-export default main;
+export default Main;

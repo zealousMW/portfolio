@@ -4,26 +4,27 @@ import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 export default function CosmicSphere() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const width = 800;
-    const height = 600;
+    if (!containerRef.current) return;
+
+    const container = containerRef.current;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
 
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
     camera.position.z = 5;
 
-
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(width, height);
     renderer.setClearColor(0x000000, 0);
 
-    if (containerRef.current) {
-      containerRef.current.appendChild(renderer.domElement);
-    }
+    container.appendChild(renderer.domElement);
 
     const vertexShader = `
       varying vec3 vNormal;
@@ -78,7 +79,8 @@ export default function CosmicSphere() {
     const glowSphere = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glowSphere);
 
-    const particleCount = 500;
+    // Optimize particle count for better performance
+    const particleCount = 300;
     const particlesGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
     const particleSizes = new Float32Array(particleCount);
@@ -109,7 +111,7 @@ export default function CosmicSphere() {
     const particles = new THREE.Points(particlesGeometry, particleMaterial);
     scene.add(particles);
 
-    const addRing = (radius: number, color: number, thickness: number, segments = 128, rotationSpeed = 0.0005) => {
+    const addRing = (radius, color, thickness, segments = 128, rotationSpeed = 0.0005) => {
       const ringGeometry = new THREE.TorusGeometry(radius, thickness, 2, segments);
       const ringMaterial = new THREE.MeshBasicMaterial({
         color,
@@ -142,14 +144,29 @@ export default function CosmicSphere() {
     light2.position.set(-2, -2, -2);
     scene.add(light2);
 
-    const handleMouseMove = (event: MouseEvent) => {
+    const handleMouseMove = (event) => {
       const rect = renderer.domElement.getBoundingClientRect();
       const x = ((event.clientX - rect.left) / width) * 2 - 1;
       const y = -((event.clientY - rect.top) / height) * 2 + 1;
       setMousePosition({ x, y });
+      
+      // Add subtle movement to sphere based on mouse position
+      sphere.rotation.x = y * 0.1;
+      sphere.rotation.y = x * 0.1;
     };
 
-    containerRef.current?.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mousemove', handleMouseMove);
+
+    const handleResize = () => {
+      const newWidth = container.clientWidth;
+      const newHeight = container.clientHeight;
+      
+      camera.aspect = newWidth / newHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(newWidth, newHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
 
     let time = 0;
     const animate = () => {
@@ -184,10 +201,12 @@ export default function CosmicSphere() {
     };
 
     animate();
+    setIsLoaded(true);
 
     return () => {
-      containerRef.current?.removeEventListener('mousemove', handleMouseMove);
-      containerRef.current?.removeChild(renderer.domElement);
+      window.removeEventListener('resize', handleResize);
+      container?.removeEventListener('mousemove', handleMouseMove);
+      container?.removeChild(renderer.domElement);
       renderer.dispose();
       sphereGeometry.dispose();
       particlesGeometry.dispose();
@@ -199,11 +218,26 @@ export default function CosmicSphere() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-full">
-      <div ref={containerRef} className="w-full h-full" />
-      <div className="mt-4 text-center">
-        <p className="text-xl font-bold text-blue-500 mb-2">Cosmic Sphere</p>
-        <p className="text-gray-600">A mesmerizing sphere with slowly orbiting rings</p>
+    <div className="relative flex flex-col w-full">
+      {/* Cosmic sphere container - partially visible at top */}
+      <div ref={containerRef} className="absolute top-[-280px] left-0 z-[1] w-full h-[500px]" />
+      
+      {/* Overlay content that appears when animation is loaded */}
+      <div className={`relative z-[2] flex flex-col items-center justify-center mt-48 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-2">
+          zealousMW
+        </h1>
+        <p className="text-xl text-white/80 mb-8 max-w-2xl text-center">
+          Transforming ideas into digital experiences
+        </p>
+        <div className="flex gap-4">
+          <button className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition">
+            View Projects
+          </button>
+          <button className="px-6 py-2 bg-transparent border border-white/30 text-white rounded-full hover:bg-white/10 transition">
+            Contact Me
+          </button>
+        </div>
       </div>
     </div>
   );
