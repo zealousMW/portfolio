@@ -9,22 +9,22 @@ const Herocontent = () => {
         <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col lg:flex-row items-center justify-center w-full px-4 md:px-20 mt-16 md:mt-20 z-20"
+      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-20"
     >
-      <div className="w-full h-full flex flex-col gap-5 justify-center text-start">
+      <div className="w-full h-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
           variants={slideInFromTop}
-          className="flex items-center py-[6px] px-[7px] border border-purple-500/70 rounded-full bg-purple-500/10 w-fit"
+          className="Welcome-box py-[8px] px-[4px] border border-[#7042f88b] opacity-[0.9]"
         >
-          <Sparkles className="text-purple-400 animate-pulse mr-2 h-4 w-4" />
-          <h1 className="text-sm font-medium text-white">
+          <Sparkles className="text-purple-400 animate-pulse mr-[10px] h-5 w-5" />
+          <h1 className="Welcome-text text-[13px]">
             Fullstack Developer
           </h1>
         </motion.div>
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-2 text-4xl md:text-6xl font-bold text-white max-w-md"
+          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
         >
          <span>
          Providing{" "}
@@ -38,7 +38,7 @@ const Herocontent = () => {
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-base md:text-lg text-gray-400 my-4 max-w-md"
+          className="text-lg text-gray-400 my-4 max-w-[600px]"
         >
           I&apos;m a passionate fullstack developer with a knack for creating dynamic
           and responsive web applications. I specialize in both front-end and
@@ -55,14 +55,15 @@ const Herocontent = () => {
 
       <motion.div
         variants={slideInFromLeft(1.2)}
-        className="w-full h-full flex justify-center items-center mt-8 lg:mt-0"
+        className="w-full h-full flex justify-center items-center"
       >
         <Image
           src="/mainIconsdark.svg"
           alt="Developer skills"
-          height={500}
-          width={500}
+          height={650}
+          width={650}
           priority
+          className="animate-pulse"
         />
       </motion.div>
         </motion.div>
