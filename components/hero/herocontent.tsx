@@ -18,7 +18,7 @@ const Herocontent = () => {
         >
           <Sparkles className="text-purple-400 animate-pulse mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Hey there! I'm Maheshwar Muthukumar, a passionate fullstack developer
+            Hey there! I&apos;m Maheshwar Muthukumar, a passionate fullstack developer
           </h1>
         </motion.div>
 
@@ -40,7 +40,7 @@ const Herocontent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-4 max-w-[600px]"
         >
-          I'm a full stack developer who can work with anything—front-end, back-end, or whatever the project needs. I love tackling new challenges and building solutions that just work.
+          I&spos;m a full stack developer who can work with anything—front-end, back-end, or whatever the project needs. I love tackling new challenges and building solutions that just work.
         </motion.p>
 
         <motion.a

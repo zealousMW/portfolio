@@ -1,5 +1,4 @@
 import Encryption from "@/components/encrytion";
-import CosmicSphere from "@/components/hero/hero";
 import Hero from "@/components/hero/hero2";
 import Project from "@/components/projects";
 import Skils from "@/components/skills";

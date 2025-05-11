@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {useInView} from 'react-intersection-observer';
 
 interface Props {
@@ -30,7 +31,7 @@ const SkillsData = ({src , width ,height, index}: Props) => {
             custom={index}
             transition={{delay: index * animationDelay}}
         >
-            <img src={src} width={width} height={height} alt="skills"/>
+            <Image src={src} width={width} height={height} alt="skills"/>
     </motion.div>
     
 )

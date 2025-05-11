@@ -1,5 +1,4 @@
-import { Backend_skill, Frontend_skill, Full_stack, Other_skill, Skill_data } from "@/constants";
-import { section } from "framer-motion/client";
+import { Backend_skill, Frontend_skill, Full_stack, Other_skill } from "@/constants";
 import SkillsData from "./skillsdata";
 import SkillText from "./skillstext";
 

@@ -1,21 +1,21 @@
 "use client"
 import { useState, useRef, Suspense } from "react";
-import {Canvas, useFrame} from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
-import { div, p } from "framer-motion/client";
-
-
+import * as THREE from "three";
 
 const Starbackground = () => {
-     const ref: any = useRef(null);
+     const ref = useRef<THREE.Points>(null);
      const [sphere] = useState(() =>
         new Float32Array(
             Array.from({ length: 1000 * 3 }, () => Math.random() * 2 - 1)
         )
      );
      useFrame((state, delta) => {
-        ref.current.rotation.x -= delta / 10;
-        ref.current.rotation.y -= delta / 15;
+        if (ref.current) {
+            ref.current.rotation.x -= delta / 10;
+            ref.current.rotation.y -= delta / 15;
+        }
      });
     return(
         <group rotation={[0, 0, Math.PI / 4]} >
