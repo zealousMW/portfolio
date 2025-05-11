@@ -5,6 +5,7 @@ import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { div, p } from "framer-motion/client";
 
 
+
 const Starbackground = () => {
      const ref: any = useRef(null);
      const [sphere] = useState(() =>
@@ -32,6 +33,7 @@ const StarCanvas = () => {
             <ambientLight intensity={0.5} />
             <Suspense fallback={<Preload all />}>
                 <Starbackground />
+               
             </Suspense>
         </Canvas>
     </div>

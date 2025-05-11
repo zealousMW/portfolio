@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StarCanvas from "@/components/background/back";
+import Navbar from "@/components/navbar";
 
 
 const geistSans = Geist({
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <div className="bg-[#090011]">
         <StarCanvas/>
+        <Navbar/>
         
         {children}
         </div>
