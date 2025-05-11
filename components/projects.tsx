@@ -9,21 +9,32 @@ const Project = () => {
             <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
                 <ProjectCard
                   src="/nextWebsite.png"
-                    title="Next.js Website"
-                    descrption="This is a personal website built with Next.js, Tailwind CSS, and Framer Motion. It showcases my skills and projects."
+                  title="Faculty Leave Management System"
+                  descrption="Automated faculty leave requests with secure authentication and bulk data management."
                 />
                 <ProjectCard
                   src="/nextWebsite.png"
-                    title="Next.js Website"
-                    descrption="This is a personal website built with Next.js, Tailwind CSS, and Framer Motion. It showcases my skills and projects."
+                  title="Hospital Management System"
+                  descrption="Managed patient records, prescriptions, and inventory with role-based access."
                 />
                 <ProjectCard
                   src="/nextWebsite.png"
-                    title="Next.js Website"
-                    descrption="This is a personal website built with Next.js, Tailwind CSS, and Framer Motion. It showcases my skills and projects."
+                  title="Gembot Windows Automation Tool"
+                  descrption="Voice-controlled Windows tool for automating tasks using AI."
                 />
             </div>
-            
+            <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10 mt-10">
+                <ProjectCard
+                  src="/nextWebsite.png"
+                  title="CopBot"
+                  descrption="AI assistant for police document-based information retrieval."
+                />
+                <ProjectCard
+                  src="/nextWebsite.png"
+                  title="Coconut Shell Recycling Reward System"
+                  descrption="Web app to encourage coconut shell recycling with incentives."
+                />
+            </div>
          </div>
     )
 }

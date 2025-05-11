@@ -18,7 +18,7 @@ const Herocontent = () => {
         >
           <Sparkles className="text-purple-400 animate-pulse mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Fullstack Developer
+            Hey there! I'm Maheshwar Muthukumar, a passionate fullstack developer
           </h1>
         </motion.div>
 
@@ -27,11 +27,11 @@ const Herocontent = () => {
           className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
         >
          <span>
-         Providing{" "}
+         Building{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-            the best
+            intelligent experiences
           </span>{" "}
-          Experience
+          with code and creativity
          </span>
           
         </motion.div>
@@ -40,9 +40,7 @@ const Herocontent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-4 max-w-[600px]"
         >
-          I&apos;m a passionate fullstack developer with a knack for creating dynamic
-          and responsive web applications. I specialize in both front-end and
-          back-end development, ensuring a seamless user experience from start to finish.
+          I'm a full stack developer who can work with anything—front-end, back-end, or whatever the project needs. I love tackling new challenges and building solutions that just work.
         </motion.p>
 
         <motion.a

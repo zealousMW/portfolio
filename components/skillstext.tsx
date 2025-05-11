@@ -12,19 +12,19 @@ const SkillText = () => {
         >
           <Sparkles className="text-purple-400 animate-pulse mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Think outside the box, and let your creativity shine!
+            Break boundaries, build possibilities.
           </h1>
         </motion.div>
         <motion.div
           variants={slideInFromLeft(0.5)}
           className="text-[30px] text-gray-200 font-medium mt-[10px] text-center">
-            Making apps with modern technologies
-          </motion.div>
+            Engineering solutions with the latest tech stack
+        </motion.div>
         <motion.div
           variants={slideInFromRight(0.5)}
           className="cursive text-[20px] text-gray-200 mb-10 mt-[10px] text-center">
-            Never stop learning, never stop growing.
-          </motion.div>
+            Adapt. Innovate. Deliver.
+        </motion.div>
 
         </div>
     )
