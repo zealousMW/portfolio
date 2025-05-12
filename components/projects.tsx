@@ -3,7 +3,7 @@ import ProjectCard from "./projectcontent";
 import React from "react";
 const Project = () => {
     return(
-         <div className="flex flex-col items-center justify-center py-10 md:py-20">
+         <div className="flex flex-col items-center justify-center py-10 md:py-20 z-[50]">
             <h1 className="text-[32px] md:text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 px-4 text-center">
                 My projects
             </h1>

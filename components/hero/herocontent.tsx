@@ -44,6 +44,7 @@ const Herocontent = () => {
     
             <motion.a
               variants={slideInFromLeft(1)}
+              href="#skills"
               className="py-3 px-6 bg-gradient-to-r from-purple-500 to-cyan-500 text-center text-white cursor-pointer rounded-lg max-w-[200px] hover:scale-105 hover:opacity-90 transition-all duration-300"
             >
               Learn More!

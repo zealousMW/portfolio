@@ -20,7 +20,12 @@ const Encryption = () => {
             </motion.div>
 
             <div className="flex flex-col items-center justify-center relative z-20">
-                <div className="flex flex-col items-center group cursor-pointer">
+                <a 
+                    href="https://github.com/yourusername/security-projects" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center group cursor-pointer"
+                >
                     <Image 
                         src="/LockTop.png"
                         alt="lock top"
@@ -35,7 +40,7 @@ const Encryption = () => {
                         height={70}
                         className="z-10"
                     />
-                </div>
+                </a>
 
                 <div className="Welcome-box px-[15px] py-[4px] border my-[20px] border-[#7042f88b] opacity-[0.9]">
                     <h1 className="Welcome-text text-[13px] md:text-[14px]">

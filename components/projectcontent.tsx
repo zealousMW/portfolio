@@ -8,7 +8,12 @@ interface Props {
 
 const ProjectCard = ({src, title, descrption}: Props) => {
     return (
-        <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] group transition-all duration-300 hover:scale-105 hover:border-[#4B2B9B] flex-1">
+        <a 
+            href={`https://github.com/yourusername/${title.toLowerCase().replace(/\s+/g, '-')}`} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="block relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] group transition-all duration-300 hover:scale-105 hover:border-[#4B2B9B] flex-1"
+        >
             <div className="h-[200px] md:h-[250px] relative overflow-hidden">
                 <Image 
                     src={src}
@@ -26,7 +31,7 @@ const ProjectCard = ({src, title, descrption}: Props) => {
                     {descrption}
                 </p>
             </div>
-        </div>
+        </a>
     );
 }
 
