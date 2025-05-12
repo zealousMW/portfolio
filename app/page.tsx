@@ -6,14 +6,12 @@ import Skils from "@/components/skills";
 const Main = () => {
   return (
     <main className="w-full h-full">
-      
-      <div className="flex flex-col  gap-20">
-        {/* <Hero/> */}
+      <div className="flex flex-col gap-10 md:gap-20">
         <Hero/>
         <Skils/>
         <Encryption/>
         <Project/>
-        </div>
+      </div>
     </main>
   );
 } 

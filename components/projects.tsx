@@ -1,12 +1,13 @@
+"use client"
 import ProjectCard from "./projectcontent";
 import React from "react";
 const Project = () => {
     return(
-         <div className="flex flex-col items-center justify-center py-20">
-            <h1 className="text-[40px] font-semibold text-transparent bg-clip-text  bg-gradient-to-r from-purple-500 to-cyan-500">
+         <div className="flex flex-col items-center justify-center py-10 md:py-20">
+            <h1 className="text-[32px] md:text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 px-4 text-center">
                 My projects
             </h1>
-            <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10">
+            <div className="h-full w-full flex flex-col lg:flex-row gap-6 md:gap-10 px-4 md:px-10">
                 <ProjectCard
                   src="/nextWebsite.png"
                   title="Faculty Leave Management System"
@@ -23,7 +24,7 @@ const Project = () => {
                   descrption="Voice-controlled Windows tool for automating tasks using AI."
                 />
             </div>
-            <div className="h-full w-full flex flex-col md:flex-row gap-10 px-10 mt-10">
+            <div className="h-full w-full flex flex-col lg:flex-row gap-6 md:gap-10 px-4 md:px-10 mt-6 md:mt-10">
                 <ProjectCard
                   src="/nextWebsite.png"
                   title="CopBot"
