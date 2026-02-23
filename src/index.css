@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* === DARK THEME (DEFAULT) === */
+  --os-bg: #0d0d1a;
+  --os-surface: #161625;
+  --os-surface2: #1e1e35;
+  --os-surface3: #252540;
+  --os-border: rgba(255, 255, 255, 0.08);
+  --os-border-strong: rgba(255, 255, 255, 0.15);
+  --os-text: rgba(255, 255, 255, 0.92);
+  --os-text-dim: rgba(255, 255, 255, 0.55);
+  --os-text-muted: rgba(255, 255, 255, 0.3);
+  --os-accent: #5e81f4;
+  --os-accent-glow: rgba(94, 129, 244, 0.35);
+  --os-accent2: #8b5cf6;
+  --os-accent3: #06b6d4;
+  --os-green: #10b981;
+  --os-yellow: #f59e0b;
+  --os-red: #ef4444;
+  --os-orange: #f97316;
+
+  /* Mac traffic lights */
+  --mac-red: #ff5f57;
+  --mac-yellow: #ffbc2e;
+  --mac-green: #28c840;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-blur: 24px;
+
+  /* Window chrome */
+  --win-titlebar: rgba(20, 20, 40, 0.95);
+  --win-body: rgba(15, 15, 30, 0.92);
+  --win-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.07);
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(255,255,255,0.15);
+  --scrollbar-track: transparent;
+}
+
+[data-theme="light"] {
+  --os-bg: #e8eaf6;
+  --os-surface: #ffffff;
+  --os-surface2: #f5f5ff;
+  --os-surface3: #ededff;
+  --os-border: rgba(0, 0, 0, 0.08);
+  --os-border-strong: rgba(0, 0, 0, 0.15);
+  --os-text: rgba(0, 0, 0, 0.87);
+  --os-text-dim: rgba(0, 0, 0, 0.55);
+  --os-text-muted: rgba(0, 0, 0, 0.38);
+  --os-accent: #4c6ef5;
+  --os-accent-glow: rgba(76, 110, 245, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0,0,0,0.08);
+  --win-titlebar: rgba(230, 232, 250, 0.97);
+  --win-body: rgba(245, 247, 255, 0.95);
+  --win-shadow: 0 32px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.07);
+  --scrollbar-thumb: rgba(0,0,0,0.2);
+}
+
+[data-theme="glass"] {
+  --os-bg: rgba(10, 10, 30, 0.5);
+  --os-surface: rgba(255, 255, 255, 0.06);
+  --os-surface2: rgba(255, 255, 255, 0.08);
+  --os-surface3: rgba(255, 255, 255, 0.10);
+  --os-border: rgba(255, 255, 255, 0.12);
+  --os-border-strong: rgba(255, 255, 255, 0.22);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: 40px;
+  --win-titlebar: rgba(255, 255, 255, 0.08);
+  --win-body: rgba(255, 255, 255, 0.04);
+  --win-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--os-bg);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== SCROLLBARS ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ===== GLASS CARD ===== */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* ===== OS WINDOW ===== */
+.os-window {
+  background: var(--win-body);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--os-border);
+  border-radius: 12px;
+  box-shadow: var(--win-shadow);
+  overflow: hidden;
+}
+
+.os-titlebar {
+  background: var(--win-titlebar);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--os-border);
+}
+
+/* ===== NEON TEXT ===== */
+.neon-text {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+/* ===== BOOT SCREEN ===== */
+.boot-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(transparent, rgba(94, 129, 244, 0.6), transparent);
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* ===== DOCK BLUR ===== */
+.dock-blur {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* ===== PROGRESS BAR SHIMMER ===== */
+.shimmer-bar {
+  background: linear-gradient(
+    90deg,
+    var(--os-accent) 0%,
+    rgba(139, 92, 246, 0.8) 50%,
+    var(--os-accent) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===== TERMINAL CURSOR ===== */
+.cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ===== ICON BOUNCE ===== */
+.icon-bounce:hover {
+  animation: iconBounce 0.3s ease-in-out;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.15) translateY(-8px); }
+}
+
+/* ===== PROCESS TABLE ROW ===== */
+.process-row:hover {
+  background: rgba(94, 129, 244, 0.08);
+}
+
+/* ===== MATERIAL RIPPLE ===== */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.ripple:active::after {
+  opacity: 1;
+}
+
+/* ===== GRADIENT MESH BACKGROUND ===== */
+.mesh-bg {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(94,129,244,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(6,182,212,0.08) 0%, transparent 60%),
+    var(--os-bg);
+}
+
+/* ===== TASKBAR GLASS ===== */
+.taskbar-glass {
+  background: rgba(12, 14, 30, 0.78);
+  backdrop-filter: blur(40px) saturate(220%);
+  -webkit-backdrop-filter: blur(40px) saturate(220%);
+  border-top: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 -1px 40px rgba(0,0,0,0.22);
+}
+
+[data-theme="light"] .taskbar-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 -1px 20px rgba(0,0,0,0.08);
+}
+
+[data-theme="glass"] .taskbar-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(48px) saturate(240%);
+  -webkit-backdrop-filter: blur(48px) saturate(240%);
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Taskbar search input placeholder */
+.taskbar-search-input::placeholder {
+  color: var(--os-text-muted);
+}
+
+/* ===== SKILL BADGE ===== */
+.skill-badge {
+  background: linear-gradient(135deg, rgba(94,129,244,0.15), rgba(139,92,246,0.15));
+  border: 1px solid rgba(94,129,244,0.3);
+  transition: all 0.2s ease;
+}
+.skill-badge:hover {
+  background: linear-gradient(135deg, rgba(94,129,244,0.25), rgba(139,92,246,0.25));
+  border-color: rgba(94,129,244,0.6);
+  box-shadow: 0 0 12px rgba(94,129,244,0.3);
+  transform: translateY(-1px);
+}
+
+/* ===== WINDOW RESIZE HANDLE ===== */
+.resize-handle {
+  cursor: nwse-resize;
+}
+
+/* ===== OS TOGGLE ANIMATION ===== */
+.toggle-slide {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== NOTIFICATION PING ===== */
+.notification-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ===== SYSTEM TRAY CLOCK ===== */
+.system-tray-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--os-text-dim);
+  letter-spacing: 0.02em;
+}
+
+/* ===== ELECTRON-STYLE DRAG REGION ===== */
+.drag-region {
+  -webkit-app-region: drag;
+  app-region: drag;
+}
+
+/* ===== SELECTION HIGHLIGHT ===== */
+::selection {
+  background: rgba(94, 129, 244, 0.35);
+  color: white;
+}
