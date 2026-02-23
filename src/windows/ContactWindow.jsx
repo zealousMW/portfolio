@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { terminalCommands, personalInfo } from "../data/resumeData";
+import { terminalCommands } from "../data/resumeData";
 import { useOSStore } from "../store/useOSStore";
 import DoomWindow from "./DoomWindow";
 
